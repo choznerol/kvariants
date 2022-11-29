@@ -1,3 +1,8 @@
 set -ex
 
-curl https://raw.githubusercontent.com/hfhchan/irg/master/kVariants.txt > ./dictionaries/kVariants.txt
+bin/clean
+
+curl https://raw.githubusercontent.com/hfhchan/irg/master/kVariants.txt \
+  > ./dictionaries/source/kVariants.txt
+
+cargo build

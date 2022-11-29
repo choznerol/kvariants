@@ -33,17 +33,16 @@ pub static KVARIANTS: Lazy<HashMap<char, KVariant>> = Lazy::new(|| {
     //   㓻 (U+34FB)	sem	    剛 (U+525B)
     //   ...
     //
-    let tsv = include_str!("../../dictionaries/kVariants.txt");
+    let dictionary = include_str!("../../dictionaries/compressed/kVariants.csv");
     let mut reader = csv::ReaderBuilder::new()
-        .delimiter(b'\t')
         .has_headers(false)
-        .from_reader(tsv.as_bytes());
+        .from_reader(dictionary.as_bytes());
 
     let mut map: HashMap<char, KVariant> = HashMap::new();
     for result in reader.deserialize() {
         let line: TsvRow = result.unwrap();
-        let rhs = line.rhs.chars().nth(0).unwrap(); // Extract "㨲" from "㨲 (U+3A32)"
-        let lhs = line.lhs.chars().nth(0).unwrap(); // Extract "㩍" from "㩍 (U+3A4D)"
+        let rhs = line.rhs.chars().nth(0).unwrap();
+        let lhs = line.lhs.chars().nth(0).unwrap();
 
         if let Some(classification) = match line.relation.as_str() {
             "wrong!" => Some(KVariantClass::Wrong),
