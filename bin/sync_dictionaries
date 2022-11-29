@@ -1,0 +1,3 @@
+set -ex
+
+curl https://raw.githubusercontent.com/hfhchan/irg/master/kVariants.txt > ./dictionaries/kVariants.txt
