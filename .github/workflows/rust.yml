@@ -16,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Sync dictionary
+      run: bin/sync_dictionaries
     - uses: Swatinem/rust-cache@v1
     - name: Build
       run: cargo build --verbose
