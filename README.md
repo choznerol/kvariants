@@ -1,3 +1,9 @@
+# ⚠️ Archived
+
+this repo has been merged into [meilisearch/charabia](https://github.com/meilisearch/charabia) ([charabia#171](https://github.com/meilisearch/charabia/pull/171))
+
+---
+
 # kvariants
 
 A Rust crate for https://github.com/hfhchan/irg/blob/master/kVariants.md
